@@ -38,6 +38,7 @@ public class CommandlineAction : PluginAction
                         WorkingDirectory = workingDirectory,
                         Arguments = "/C " + command,
                         RedirectStandardOutput = saveVariable,
+                        CreateNoWindow = true,
                     }
                 };
                 p.Start();

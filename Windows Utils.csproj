@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <RootNamespace>SuchByte.WindowsUtils</RootNamespace>
     <UseWindowsForms>true</UseWindowsForms>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
@@ -38,7 +38,7 @@
 
   <ItemGroup>
     <Reference Include="Macro Deck 2">
-      <HintPath>C:\Program Files\Macro Deck\Macro Deck 2.dll</HintPath>
+      <HintPath>C:\Users\Johannes\AppData\Local\Programs\Macro Deck\Macro Deck 2.dll</HintPath>
       <Private>false</Private>
       <EmbedInteropTypes>false</EmbedInteropTypes>
     </Reference>
@@ -64,7 +64,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="copy /Y &quot;$(TargetDir)$(TargetName).dll&quot; &quot;C:\Users\Manuel\AppData\Roaming\Macro Deck\plugins\SuchByte.WindowsUtils\$(TargetName).dll&quot;" />
+    <Exec Command="copy /Y &quot;$(TargetDir)$(TargetName).dll&quot; &quot;C:\Users\Johannes\AppData\Roaming\Macro Deck\plugins\SuchByte.WindowsUtils\$(TargetName).dll&quot;" />
   </Target>
 
 </Project>
