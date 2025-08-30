@@ -1,70 +1,71 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0-windows</TargetFramework>
-    <RootNamespace>SuchByte.WindowsUtils</RootNamespace>
-    <UseWindowsForms>true</UseWindowsForms>
-    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-    <Authors>Macro Deck</Authors>
-    <Company>Macro Deck</Company>
-    <AssemblyVersion>1.5.0.0</AssemblyVersion>
-    <FileVersion>1.5.0.0</FileVersion>
-    <Version>1.5.0</Version>
-    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
-    <Platforms>AnyCPU;x64</Platforms>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net8.0-windows</TargetFramework>
+        <RootNamespace>SuchByte.WindowsUtils</RootNamespace>
+        <UseWindowsForms>true</UseWindowsForms>
+        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+        <Authors>Macro Deck</Authors>
+        <Company>Macro Deck</Company>
+        <IncludeSourceRevisionInInformationalVersion >false</IncludeSourceRevisionInInformationalVersion>
+        <AssemblyVersion>1.5.0.0</AssemblyVersion>
+        <FileVersion>1.5.0.0</FileVersion>
+        <Version>1.5.0</Version>
+        <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+        <Platforms>AnyCPU;x64</Platforms>
+    </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-  </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
-  </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="Resources\Languages\*" />
-  </ItemGroup>
+    <ItemGroup>
+        <None Remove="Resources\Languages\*" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Languages\*" />
-  </ItemGroup>
+    <ItemGroup>
+        <EmbeddedResource Include="Resources\Languages\*" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="H.InputSimulator" Version="1.4.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="System.Drawing.Common" Version="7.0.0" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="H.InputSimulator" Version="1.4.0" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+        <PackageReference Include="System.Drawing.Common" Version="7.0.0" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="Macro Deck 2">
-      <HintPath>C:\Users\Johannes\AppData\Local\Programs\Macro Deck\Macro Deck 2.dll</HintPath>
-      <Private>false</Private>
-      <EmbedInteropTypes>false</EmbedInteropTypes>
-    </Reference>
-  </ItemGroup>
+    <ItemGroup>
+        <Reference Include="Macro Deck 2">
+            <HintPath>C:\Users\Johannes\AppData\Local\Programs\Macro Deck\Macro Deck 2.dll</HintPath>
+            <Private>false</Private>
+            <EmbedInteropTypes>false</EmbedInteropTypes>
+        </Reference>
+    </ItemGroup>
 
-  <ItemGroup>
-    <Compile Update="Properties\Resources.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
+    <ItemGroup>
+        <Compile Update="Properties\Resources.Designer.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>Resources.resx</DependentUpon>
+        </Compile>
+    </ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Update="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
+    <ItemGroup>
+        <EmbeddedResource Update="Properties\Resources.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+    </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="GUI\CustomControls\" />
-  </ItemGroup>
+    <ItemGroup>
+        <Folder Include="GUI\CustomControls\" />
+    </ItemGroup>
 
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="copy /Y &quot;$(TargetDir)$(TargetName).dll&quot; &quot;C:\Users\Johannes\AppData\Roaming\Macro Deck\plugins\SuchByte.WindowsUtils\$(TargetName).dll&quot;" />
-  </Target>
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+        <Exec Command="copy /Y &quot;$(TargetDir)$(TargetName).dll&quot; &quot;C:\Users\Johannes\AppData\Roaming\Macro Deck\plugins\SuchByte.WindowsUtils\$(TargetName).dll&quot;" />
+    </Target>
 
 </Project>
